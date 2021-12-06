@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;;
 }
 
 
@@ -9,23 +12,51 @@
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #1b1b1b;
     color: white;  
+    background: url('./pastelBackground2.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-size: 2rem;
 }
 
 #board{
     height: 20rem;
     width: 40rem;
-    background: wheat;
+    /* background: wheat; */
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .cards{
-    background: rebeccapurple;
-    height: 1rem;
-    width: 1rem;
+    background: #85e3ff;
+    background: #aff8d8;
+    background: #ffb5e8;
+    background: #f67280;  
+    background: #6b7b8e;  
+    background: #836953;
+    background: #ffc37f;
+    background: palegoldenrod;
+    height: 5rem;
+    width: 5rem;
     margin: 1rem;
+    border-radius: 20%;
+    box-shadow: 1px 3px 10px black;
+}
+
+#pausedScreen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    display: none;
+    /* background:#1b1b1b; */
 }
