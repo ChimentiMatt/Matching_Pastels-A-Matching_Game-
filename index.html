@@ -7,14 +7,22 @@
         <script src="index.js" defer></script>
         
         <link rel="stylesheet" href="style.css">
-        <title>Make Change</title>
+        <title>Matching Pastels</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     </head>
     <body>
         <div id="app">
-            <p>Attemps Remaining</p>
+            <div id="attemptsRow">
+                <p>Attemps Remaining </p>
+                <p id="attempts"></p>
+            </div>
+            <div id="scoreRow">
+                <p>score</p>
+                <p id="score">0</p>
+            </div>
+            <!-- <div id="playAgain">Play again?</div> -->
             <div id="board">
-
+                
             </div>
         </div>
         <div id="pausedScreen"></div>

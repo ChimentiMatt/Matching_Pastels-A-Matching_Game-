@@ -7,13 +7,12 @@
     font-family: 'Questrial', sans-serif;;
 }
 
-
 #app{
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     background: #1b1b1b;
     color: white;  
@@ -23,11 +22,27 @@
     -o-background-size: cover;
     background-size: cover;
     font-size: 2rem;
+    padding-top: 20vh;
+}
+
+#scoreRow{
+    display: flex;
+}
+#attemptsRow{
+    display: flex;
+    margin-bottom: 1rem;
+}
+p{
+    margin-left: 1rem;
+}
+
+#playAgain{
+    position: absolute;
 }
 
 #board{
     height: 20rem;
-    width: 40rem;
+    width: 50rem;
     /* background: wheat; */
     display: flex;
     flex-wrap: wrap;
@@ -37,18 +52,24 @@
 
 .cards{
     background: #85e3ff;
-    background: #aff8d8;
     background: #ffb5e8;
     background: #f67280;  
+    background: #f4fffa;
     background: #6b7b8e;  
     background: #836953;
     background: #ffc37f;
+    background: #4D4DFF;
+    background: #E0E722;
+    background: #FFAD00;
+    background: #DB3EB1;
+    background: #44D62C;
     background: palegoldenrod;
     height: 5rem;
     width: 5rem;
     margin: 1rem;
     border-radius: 20%;
     box-shadow: 1px 3px 10px black;
+    /* visibility: hidden; */
 }
 
 #pausedScreen {
@@ -59,4 +80,23 @@
     z-index: 100;
     display: none;
     /* background:#1b1b1b; */
+}
+
+
+@media (max-width: 1000px) {
+    #board{
+        width: 90vw;
+    }
+    .cards{
+        width: 3rem;
+        height: 3rem;
+    }
+    #app {
+        padding-top: 10vh;
+    }
+    #board{
+        margin-top: 2.5rem;
+        height: 10rem;
+    }
+
 }
