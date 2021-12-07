@@ -89,6 +89,8 @@ p{
     }
     #attemptsRow{
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
     .cards{
         width: 3rem;
