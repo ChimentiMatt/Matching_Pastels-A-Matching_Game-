@@ -34,14 +34,11 @@ let card2Back = ''
 
 let x = 4
 
-// let rangeVar = [...Array(x).keys()]
 let tempArray = []
 let tempString = ''
 
 let matchCounter = 0
 let counter = 0
-
-
 
 function generateGame() {
 
