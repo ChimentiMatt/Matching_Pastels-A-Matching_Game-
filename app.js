@@ -14,6 +14,27 @@ cardImages = {
     10: '#DB3EB1',
     11: '#44D62C',
     12: '#cccccc',
+    13: '#C34A36',
+    14: '#845EC2',
+    15: 'gold',
+    16: 'black',
+    17: 'indigo',
+    18: 'seagreen',
+    19: 'pink',
+    20: 'tomato',
+    21: 'violet',
+    22: 'darkblue',
+    23: 'darkred',
+    24: 'sandybrown',
+    25: 'wheat',
+    26: 'peru',
+    27: 'hotpink',
+    28: 'burlywood',
+    29: 'springgreen',
+    30: 'chocolate'
+
+
+
 }
 
 let attempts = 5
@@ -32,7 +53,6 @@ let dom2 = ''
 let card1Back = ''
 let card2Back = ''
 
-let x = 4
 
 let tempArray = []
 let tempString = ''
@@ -40,9 +60,12 @@ let tempString = ''
 let matchCounter = 0
 let counter = 0
 
+let cardCount = 4
+let seconds = 1000
+
 function generateGame() {
 
-    for (let i = 0; i < [...Array(x).keys()].length; i++){
+    for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         if (matchCounter == 2){
             matchCounter = 0
             counter += 1
@@ -56,7 +79,7 @@ function generateGame() {
     let shuffledArray = tempArray.sort((a, b) => 0.5 - Math.random());
     // console.log(shuffledArray)
 
-    for (let i = 0; i < [...Array(x).keys()].length; i++){
+    for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         board.innerHTML += shuffledArray[i]
     }
     console.log(board)
@@ -71,6 +94,7 @@ function clearnUpHiddenDivs() {
             item.style.display = 'none'
             }   
         })
+    
 }
 
 function newItems() {
@@ -85,7 +109,8 @@ function newItems() {
 async function addMoreItems() {
 
     await newItems()
-    attempts += 3
+    
+    attempts += 2
     document.getElementById('attempts').innerHTML = attempts
 
     score += 10
@@ -93,13 +118,18 @@ async function addMoreItems() {
 
     clearnUpHiddenDivs()
 
+    if (cardCount > 30){
+        document.getElementById('app').style.paddingTop = '2.5rem'
+    }
+
     shuffledArray = tempArray.sort((a, b) => 0.5 - Math.random());
-    for (let i = 0; i < [...Array(x).keys()].length; i++){
+    for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         board.innerHTML += shuffledArray[i]
     }
-    console.log(matcherPerRound , 'a')
-    console.log([...Array(x).keys()].length, 'b')
+    showColors()
+    
 }
+
 function newItems() {
     // alert(1)
     counter += 1
@@ -121,7 +151,7 @@ function showId(){
         
         dom1.style.backgroundColor = cardImages[card1]
         
-        console.log('card1:',card1)
+        // console.log('card1:',card1)
     }
     else if (clickCounter == 2){
         card2 = window.event.target.id
@@ -140,20 +170,20 @@ function showId(){
 function matchTest() {
     
     matchCounter = 0
-    console.log('card1:', card1, 'card2:', card2)
+    // console.log('card1:', card1, 'card2:', card2)
     if (card1 == card2){
         score += 5
         document.getElementById('score').innerHTML = score
         document.getElementById('board').style.pointerEvents = 'none'
         setTimeout(showMatch, 1000)
         matcherPerRound +=2
-        console.log(matcherPerRound , 'a')
-        console.log([...Array(x).keys()].length, 'b')
-        if (matcherPerRound == [...Array(x).keys()].length ){
+        // console.log(matcherPerRound , 'a')
+        // console.log([...Array(x).keys()].length, 'b')
+        if (matcherPerRound == [...Array(cardCount).keys()].length ){
             dom1.style.display = 'none'
             dom2.style.display = 'none'
        
-            x += 2
+            cardCount += 2
             
             matcherPerRound = 0
     
@@ -192,18 +222,49 @@ function notAMatch() {
     document.getElementById('attempts').innerHTML = attempts
 
     if (attempts == 0){
-
-
         let endingArray = document.querySelectorAll('.cards')
 
         endingArray.forEach(item => {
             item.style.pointerEvents = 'none'
             item.style.backgroundColor = cardImages[item.id]
-       
         })
+        setTimeout(gameOver, seconds)
     }
 }
 
 
+function showColors() {
+    let currentArray = document.querySelectorAll('.cards')
+    currentArray.forEach(item => {
+        item.style.pointerEvents = 'none'
+        item.style.backgroundColor = cardImages[item.id]
+    })
+    setTimeout(hideColors, seconds)
+    seconds += 500
+}
+
+function hideColors() {
+    let currentArray = document.querySelectorAll('.cards')
+    currentArray.forEach(item => {
+        item.style.pointerEvents = 'auto'
+        item.style.backgroundColor = 'palegoldenrod'
+    })
+
+}
+
+function gameOver () {
+    document.getElementById('playAgainScreen').style.display = 'flex'
+}
+
 document.getElementById('attempts').innerHTML = attempts
-generateGame()
+
+document.getElementById('startBtn').addEventListener('click', () => {
+    generateGame()
+    document.getElementById('startBtn').style.display = 'none'
+    showColors()
+})
+
+document.getElementById('playAgain').addEventListener('click', () => {
+    location.reload();
+    return false;
+})

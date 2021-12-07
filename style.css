@@ -23,6 +23,7 @@
     background-size: cover;
     font-size: 2rem;
     padding-top: 20vh;
+    font-weight: bold;
 }
 
 #scoreRow{
@@ -66,10 +67,14 @@ p{
     background: palegoldenrod;
     height: 5rem;
     width: 5rem;
-    margin: 1rem;
+    margin: .7rem;
     border-radius: 20%;
-    box-shadow: 1px 3px 10px black;
+    box-shadow: 1px 2px 5px black;
     /* visibility: hidden; */
+}
+
+.cards:hover{
+    border: 2px solid white;
 }
 
 #pausedScreen {
@@ -82,6 +87,42 @@ p{
     /* background:#1b1b1b; */
 }
 
+button{
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    font-size: 3rem;
+    background: white;
+    color: #f67280;
+}
+
+button:hover {
+    background: #f67280;
+    color: white;
+}
+#playAgainScreen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    text-align: center;
+    background: white;
+}
+#playAgain{
+    color: #f67280;
+    font-size: 5rem;
+ 
+}
+
+#playAgain:hover{
+    color: white;
+    background: #f67280;
+}
+
+
 
 @media (max-width: 1000px) {
     #board{
@@ -93,8 +134,8 @@ p{
         flex-direction: column;
     }
     .cards{
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
     #app {
         padding-top: 5vh;
@@ -102,6 +143,7 @@ p{
     #board{
         margin-top: 2.5rem;
         height: 10rem;
+        color: indigo;
     }
 
 }
