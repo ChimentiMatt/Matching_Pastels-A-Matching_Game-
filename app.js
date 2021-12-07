@@ -64,7 +64,6 @@ let cardCount = 4
 let seconds = 1000
 
 function generateGame() {
-
     for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         if (matchCounter == 2){
             matchCounter = 0
@@ -73,11 +72,10 @@ function generateGame() {
         tempString = '<div class="cards" id="' + counter + '" onClick="showId()"></div>'
         tempArray.push(tempString)
         matchCounter += 1
-        // board.innerHTML += '<div class="cards" id='+counter+'></div>'
+
     }
 
     let shuffledArray = tempArray.sort((a, b) => 0.5 - Math.random());
-    // console.log(shuffledArray)
 
     for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         board.innerHTML += shuffledArray[i]
@@ -98,7 +96,6 @@ function clearnUpHiddenDivs() {
 }
 
 function newItems() {
-    // alert(1)
     counter += 1
     tempString = '<div class="cards" id="'+counter+'" onClick="showId()"></div>'
     tempArray.push(tempString)
@@ -126,12 +123,15 @@ async function addMoreItems() {
     for (let i = 0; i < [...Array(cardCount).keys()].length; i++){
         board.innerHTML += shuffledArray[i]
     }
+    if (cardCount >= 60){
+        document.getElementById('playAgainScreen').style.display = 'flex'
+        document.getElementById('playAgain').innerHTML = 'You Win!'
+    }
     showColors()
     
 }
 
 function newItems() {
-    // alert(1)
     counter += 1
     tempString = '<div class="cards" id="'+counter+'" onClick="showId()"></div>'
     tempArray.push(tempString)
@@ -150,14 +150,12 @@ function showId(){
         dom1.style.pointerEvents = 'none';
         
         dom1.style.backgroundColor = cardImages[card1]
-        
-        // console.log('card1:',card1)
     }
+
     else if (clickCounter == 2){
         card2 = window.event.target.id
         dom2 = window.event.target
         dom2.style.backgroundColor = cardImages[card2]
-        // console.log('card2:', card2)
         
         matchTest()
         document.getElementById('pausedScreen').style.display = 'block'
