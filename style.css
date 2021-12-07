@@ -87,6 +87,9 @@ p{
     #board{
         width: 90vw;
     }
+    #attemptsRow{
+        text-align: center;
+    }
     .cards{
         width: 3rem;
         height: 3rem;
