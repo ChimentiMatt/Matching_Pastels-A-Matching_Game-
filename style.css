@@ -122,7 +122,15 @@ button:hover {
     background: #f67280;
 }
 
+#githubIcon{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
 
+#githubIcon:hover{
+    opacity: .7;
+}
 
 @media (max-width: 1000px) {
     #board{
@@ -145,5 +153,10 @@ button:hover {
         height: 10rem;
         color: indigo;
     }
-
+    #githubIcon{
+        position: absolute;
+        top: initial;
+        bottom: .5rem;
+        right: .5rem;
+    }
 }
